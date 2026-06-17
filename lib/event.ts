@@ -8,7 +8,7 @@ export const EVENT = {
   // America/Chicago is UTC-5 in July (CDT) — used by the countdown timer.
   dateTimeISO: "2026-07-17T18:00:00-05:00",
   venue: "Chi-Town",
-  contactLine: "Questions? Reach out to the family office.",
+  contactLine: "Questions? Reach out to the family.",
 } as const;
 
 export const STORY_MILESTONES = [
