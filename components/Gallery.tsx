@@ -9,6 +9,13 @@ type Photo = { src: string; alt: string };
 
 const ASPECT_RATIOS = ["aspect-[3/4]", "aspect-square", "aspect-[4/5]"];
 
+// These photos are unusually tall/narrow and get cropped too aggressively
+// at the default ratios above, so they get a taller container instead.
+const ASPECT_OVERRIDES: Record<string, string> = {
+  "/image2.jpeg": "aspect-[1/2]",
+  "/image5.jpeg": "aspect-[3/5]",
+};
+
 export default function Gallery({ images }: { images: Photo[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const reduceMotion = useReducedMotion();
@@ -49,6 +56,7 @@ export default function Gallery({ images }: { images: Photo[] }) {
               }}
               whileHover={reduceMotion ? undefined : { scale: 1.02 }}
               className={`relative mb-4 block w-full overflow-hidden rounded-2xl ring-1 ring-royal/10 ${
+                ASPECT_OVERRIDES[photo.src] ??
                 ASPECT_RATIOS[index % ASPECT_RATIOS.length]
               }`}
             >
