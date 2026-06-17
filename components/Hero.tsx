@@ -42,7 +42,7 @@ function PortraitFrame({
     const celebrantInitial = EVENT.celebrantFirstName[0].toUpperCase();
     const husbandInitial = EVENT.husband.split(" ")[0][0].toUpperCase();
     return (
-      <div className="relative mx-auto h-64 w-52 sm:h-80 sm:w-64">
+      <div className="relative mx-auto h-80 w-60 sm:h-[26rem] sm:w-80">
         <div
           aria-hidden
           className="absolute -inset-5 rounded-full bg-gold/20 blur-2xl"
@@ -63,7 +63,7 @@ function PortraitFrame({
   }
 
   return (
-    <div className="relative mx-auto h-64 w-52 sm:h-80 sm:w-64">
+    <div className="relative mx-auto h-80 w-60 sm:h-[26rem] sm:w-80">
       <div
         aria-hidden
         className="absolute -inset-5 rounded-full bg-gold/20 blur-2xl"

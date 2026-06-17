@@ -9,7 +9,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ matches: [] });
   }
 
-  const supabase = createSupabaseClient();
+  let supabase;
+  try {
+    supabase = createSupabaseClient();
+  } catch (err) {
+    console.error("Failed to create Supabase client:", err);
+    return NextResponse.json(
+      { error: "Server is misconfigured. Please contact the host." },
+      { status: 500 }
+    );
+  }
+
   const { data, error } = await supabase
     .from("guests")
     .select("full_name, assigned_table")
@@ -18,6 +28,7 @@ export async function POST(request: NextRequest) {
     .limit(8);
 
   if (error) {
+    console.error("Supabase query failed:", error);
     return NextResponse.json(
       { error: "Something went wrong on our end. Please try again." },
       { status: 500 }

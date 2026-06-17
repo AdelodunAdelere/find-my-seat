@@ -36,7 +36,7 @@ export default function PhotoCarousel({
           alt={photo.alt}
           fill
           sizes="384px"
-          className={`object-cover transition-opacity duration-1000 ${
+          className={`object-cover object-[center_22%] transition-opacity duration-1000 ${
             i === index ? "opacity-100" : "opacity-0"
           }`}
           priority={i === 0}
