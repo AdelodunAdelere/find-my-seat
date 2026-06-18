@@ -12,14 +12,13 @@ function portraitPhotos(photos: HeroPhotos) {
     return [
       {
         src: photos.couple,
-        alt: `${EVENT.celebrant} and ${EVENT.husband} together`,
+        alt: `${EVENT.celebrantName}`,
       },
     ];
   }
   if (photos.mode === "portraits") {
     return [
-      { src: photos.celebrant, alt: EVENT.celebrant },
-      { src: photos.husband, alt: EVENT.husband },
+      { src: photos.celebrant, alt: EVENT.celebrantName },
     ];
   }
   return null;
@@ -31,8 +30,7 @@ function PortraitFrame({
   images: { src: string; alt: string }[] | null;
 }) {
   if (!images) {
-    const celebrantInitial = EVENT.celebrantFirstName[0].toUpperCase();
-    const husbandInitial = EVENT.husband.split(" ")[0][0].toUpperCase();
+    const celebrantInitial = EVENT.celebrantName[0].toUpperCase();
     return (
       <div className="relative mx-auto h-80 w-60 sm:h-[26rem] sm:w-80">
         <div
@@ -42,8 +40,6 @@ function PortraitFrame({
         <div className="relative flex h-full w-full flex-col items-center justify-center gap-2 rounded-t-full rounded-b-3xl bg-gold/5 ring-1 ring-gold shadow-[0_20px_45px_-15px_rgba(184,144,43,0.35)]">
           <span className="font-display text-4xl italic text-gold-deep">
             {celebrantInitial}
-            <span className="px-1 not-italic text-gold/50">&amp;</span>
-            {husbandInitial}
           </span>
           <span aria-hidden className="h-px w-10 bg-gold/40" />
           <span className="text-xs font-semibold tracking-[0.3em] text-gold-deep/80">
@@ -97,11 +93,11 @@ export default function Hero({ photos }: { photos: HeroPhotos }) {
         </div>
 
         <h1 className="mt-8 font-display text-[1.85rem] leading-[1.1] text-royal sm:text-4xl">
-          {EVENT.celebrantFirstName} <span className="italic text-gold">@</span> 60
+          {EVENT.celebrantName} <span className="italic">@</span> 60
         </h1>
 
         <p className="mt-4 font-display text-lg text-gold-deep sm:text-xl">
-          {EVENT.celebrantFirstName}&apos;s 60th Birthday
+          {EVENT.celebrantName}&apos;s 60th Birthday
           <span className="px-2 text-gold/50">·</span>
           25 Years of Marriage
         </p>
@@ -112,14 +108,14 @@ export default function Hero({ photos }: { photos: HeroPhotos }) {
           <span className="h-px w-12 bg-gold/40" />
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-1.5">
+        <div className="mt-6 flex flex-col items-center gap-2">
           <p className="text-sm font-semibold tracking-[0.25em] text-royal uppercase">
             {EVENT.dateNumeric}
           </p>
           <p className="text-xs font-medium tracking-[0.3em] text-royal/60 uppercase">
             {EVENT.venue}
           </p>
-          <p className="text-[11px] text-royal/45">{EVENT.address}</p>
+          <p className="text-sm font-semibold text-royal/90">{EVENT.address}</p>
         </div>
 
         <div className="mt-9 border-t border-gold/20 pt-8">
