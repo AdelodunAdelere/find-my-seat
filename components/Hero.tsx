@@ -6,14 +6,6 @@ import { EVENT } from "@/lib/event";
 import PhotoCarousel from "./PhotoCarousel";
 import SeatSearch from "./SeatSearch";
 
-function splitName(fullName: string) {
-  const parts = fullName.trim().split(" ");
-  return {
-    given: parts.slice(0, -1).join(" "),
-    surname: parts[parts.length - 1],
-  };
-}
-
 function portraitPhotos(photos: HeroPhotos) {
   if (photos.mode === "slideshow") return photos.images;
   if (photos.mode === "couple") {
@@ -78,10 +70,6 @@ function PortraitFrame({
 export default function Hero({ photos }: { photos: HeroPhotos }) {
   const reduceMotion = useReducedMotion();
   const images = portraitPhotos(photos);
-  const celebrant = splitName(EVENT.celebrant);
-  const husband = splitName(EVENT.husband);
-  const sharedSurname =
-    celebrant.surname === husband.surname ? celebrant.surname : null;
 
   return (
     <section className="bg-grain relative overflow-hidden bg-royal px-4 py-14 sm:py-20">
@@ -109,22 +97,7 @@ export default function Hero({ photos }: { photos: HeroPhotos }) {
         </div>
 
         <h1 className="mt-8 font-display text-[1.85rem] leading-[1.1] text-royal sm:text-4xl">
-          {sharedSurname ? (
-            <>
-              <span className="block">
-                {celebrant.given}{" "}
-                <span className="italic text-gold">&amp;</span>{" "}
-                {husband.given}
-              </span>
-              <span className="block">{sharedSurname}</span>
-            </>
-          ) : (
-            <>
-              <span className="block">{EVENT.celebrant}</span>
-              <span className="block italic text-gold">&amp;</span>
-              <span className="block">{EVENT.husband}</span>
-            </>
-          )}
+          {EVENT.celebrantFirstName} <span className="italic text-gold">@</span> 60
         </h1>
 
         <p className="mt-4 font-display text-lg text-gold-deep sm:text-xl">
@@ -146,6 +119,7 @@ export default function Hero({ photos }: { photos: HeroPhotos }) {
           <p className="text-xs font-medium tracking-[0.3em] text-royal/60 uppercase">
             {EVENT.venue}
           </p>
+          <p className="text-[11px] text-royal/45">{EVENT.address}</p>
         </div>
 
         <div className="mt-9 border-t border-gold/20 pt-8">
