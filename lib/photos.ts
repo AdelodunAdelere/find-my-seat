@@ -41,7 +41,7 @@ export function getHeroPhotos(): HeroPhotos {
       mode: "slideshow",
       images: slideshow.map((src) => ({
         src,
-        alt: `${EVENT.celebrant} and ${EVENT.husband}`,
+        alt: `${EVENT.celebrantName} `,
       })),
     };
   }
@@ -63,6 +63,6 @@ export function getHeroPhotos(): HeroPhotos {
 export function getGalleryImages(): { src: string; alt: string }[] {
   return findSlideshowImages().map((src, index) => ({
     src,
-    alt: `${EVENT.celebrant} and ${EVENT.husband} — photo ${index + 1}`,
+    alt: `${EVENT.celebrantName} — photo ${index + 1}`,
   }));
 }
