@@ -93,7 +93,7 @@ export default function Hero({ photos }: { photos: HeroPhotos }) {
         </div>
 
         <h1 className="mt-8 font-display text-[1.85rem] leading-[1.1] text-royal sm:text-4xl">
-          {EVENT.celebrantName} <span className="italic">@</span> 60
+          {EVENT.celebrantName} <span className="italic text-gold">@</span> 60
         </h1>
 
         <p className="mt-4 font-display text-lg text-gold-deep sm:text-xl">
