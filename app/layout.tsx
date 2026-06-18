@@ -21,8 +21,8 @@ const pinyonScript = Pinyon_Script({
 });
 
 export const metadata: Metadata = {
-  title: `Find your seat — ${EVENT.celebrant} & ${EVENT.husband}`,
-  description: `Find your table for ${EVENT.celebrantFirstName}'s 60th birthday and ${EVENT.celebrant} & ${EVENT.husband}'s 25th wedding anniversary celebration.`,
+  title: `Find your seat — ${EVENT.celebrantName}'s 60th birthday and 25th wedding anniversary celebration`,
+  description: `Find your table for ${EVENT.celebrantName}'s 60th birthday and 25th wedding anniversary celebration.`,
 };
 
 export default function RootLayout({

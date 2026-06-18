@@ -1,7 +1,5 @@
 export const EVENT = {
-  celebrant: "Belau Adebayo",
-  celebrantFirstName: "Belau",
-  husband: "Babatunde Adebayo",
+  celebrantName: "Belau",
   date: "Friday, July 17, 2026",
   dateNumeric: "07 · 17 · 2026",
   time: "6:00 PM",
@@ -24,7 +22,7 @@ export const STORY_MILESTONES = [
       "A silver anniversary — a quarter-century of partnership, laughter, and a home built to last.",
   },
   {
-    title: `Celebrating 60 Years of ${EVENT.celebrantFirstName}`,
+    title: `Celebrating 60 Years of ${EVENT.celebrantName}`,
     description:
       "A milestone birthday marked alongside the people who have shaped and shared her journey.",
   },

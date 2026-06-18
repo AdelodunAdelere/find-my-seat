@@ -7,7 +7,7 @@ import { CalendarIcon, ClockIcon, PinIcon } from "./icons";
 const DETAILS = [
   { Icon: CalendarIcon, label: "Date", value: EVENT.date },
   { Icon: ClockIcon, label: "Time", value: EVENT.time },
-  { Icon: PinIcon, label: "Venue", value: EVENT.venue },
+  { Icon: PinIcon, label: "Venue", value: EVENT.address },
 ] as const;
 
 export default function EventInfo() {
